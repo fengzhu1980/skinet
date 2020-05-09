@@ -1,6 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-test-error',
@@ -11,7 +12,7 @@ export class TestErrorComponent implements OnInit {
   baseUrl = environment.apiUrl;
   validationErrors: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -47,6 +48,10 @@ export class TestErrorComponent implements OnInit {
       console.log(error);
       this.validationErrors = error.errors;
     });
+  }
+
+  getCustomError() {
+    this.toastr.error('Do not click', 'Stupid');
   }
 
 }
