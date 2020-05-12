@@ -1,9 +1,11 @@
+import { CheckoutSuccessComponent } from './checkout-success/checkout-success.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CheckoutComponent } from './checkout.component';
 
 const routes: Routes = [
-  {path: '', component: CheckoutComponent}
+  {path: '', component: CheckoutComponent},
+  {path: 'success', component: CheckoutSuccessComponent}
 ];
 
 @NgModule({
